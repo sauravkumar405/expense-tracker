@@ -11,7 +11,7 @@ router.get('/', (req, res)=>{
 router.post('/add-income', addIncome)
 router.get('/get-incomes', getIncomes)
 router.delete('/delete-income/:id', deleteIncome)
-router.post('/add-income', addExpense)
-router.get('/get-incomes', getExpenses)
-router.delete('/delete-income/:id', deleteExpense)
+router.post('/add-expense', addExpense)
+router.get('/get-expenses', getExpenses)
+router.delete('/delete-expense/:id', deleteExpense)
 export default router;

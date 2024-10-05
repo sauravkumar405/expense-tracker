@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import avatar from '../../img/avatar.png'
-import { signout } from '../../utils/Icons'
-import { menuItems } from '../../utils/menuItems'
+import avatar from '../img/avatar.png'
+import { signout } from '../utils/Icons'
+import { menuItems } from '../utils/menuItems'
 
 function Navigation({active, setActive}) {
     
@@ -77,7 +77,6 @@ const NavStyled = styled.nav`
         flex-direction: column;
         li{
             display: grid;
-            grid-template-columns: 40px auto;
             align-items: center;
             margin: .6rem 0;
             font-weight: 500;
@@ -110,6 +109,8 @@ const NavStyled = styled.nav`
             border-radius: 0 10px 10px 0;
         }
     }
+        li { transition: all .2s ease-in-out; }
+        li:hover { transform: scale(1.1); }
 `;
 
 export default Navigation
