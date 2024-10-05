@@ -1,7 +1,6 @@
 import IncomeModel from "../models/IncomeModel.js"
 
 export const addIncome = async (req, res) => {
-    console.log(req.body);
     const { title, amount, date, category, description } = req.body;
 
     try {
@@ -10,7 +9,7 @@ export const addIncome = async (req, res) => {
             return res.status(400).json({ message: 'Title is required and must be a string' });
         }
 
-        if (!amount || typeof amount !== 'number' || amount <= 0) {
+        if (!amount || amount <= 0) {
             return res.status(400).json({ message: 'Amount is required and must be a positive number' });
         }
 
