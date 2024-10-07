@@ -4,31 +4,27 @@ import bg from './img/bg.png'
 import { MainLayout } from './styles/Layouts'
 import Orb from './Components/Orb'
 import Navigation from './Components/Navigation'
-// import Dashboard from './Components/Dashboard/Dashboard';
+import Dashboard from './Components/Dashboard';
 import Income from './Components/Income'
-// import Expenses from './Components/Expenses/Expenses';
+import Expense from './Components/Expense';
 import { useGlobalContext } from './context/globalContext';
 
 function App() {
   const [active, setActive] = useState(1)
-
   const { addIncome } = useGlobalContext()
-  // console.log(global);
-
   const displayData = () => {
-    return <Income/>
-    // switch(active){
-    //   case 1:
-    //     // return <Dashboard />
-    //   case 2:
-    //     // return <Dashboard />
-    //   case 3:
-    //     return <Income />
-    //   case 4: 
-    //     // return <Expenses />
-    //   default: 
-    //     // return <Dashboard />
-    // }
+    switch(active){
+      case 1:
+        return <Dashboard />
+      case 2:
+        return <Dashboard />
+      case 3:
+        return <Income />
+      case 4: 
+        return <Expense />
+      default: 
+        return <Dashboard />
+    }
   }
 
   const orbMemo = useMemo(() => {

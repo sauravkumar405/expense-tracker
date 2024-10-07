@@ -15,7 +15,6 @@ function IncomeItem({
     indicatorColor,
     type
 }) {
-    console.log(trash)
 
     const categoryIcon = () =>{
         switch(category) {
@@ -62,8 +61,6 @@ function IncomeItem({
                 return ''
         }
     }
-
-    console.log('type', type)
 
     return (
         <IncomeItemStyled indicator={indicatorColor}>

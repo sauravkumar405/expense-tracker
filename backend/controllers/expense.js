@@ -1,7 +1,6 @@
 import ExpenseModel from "../models/ExpenseModel.js"
 
 export const addExpense = async (req, res) => {
-    console.log(req.body);
     const { title, amount, date, category, description } = req.body;
 
     try {
@@ -10,7 +9,7 @@ export const addExpense = async (req, res) => {
             return res.status(400).json({ message: 'Title is required and must be a string' });
         }
 
-        if (!amount || typeof amount !== 'number' || amount <= 0) {
+        if (!amount || amount <= 0) {
             return res.status(400).json({ message: 'Amount is required and must be a positive number' });
         }
 
@@ -62,7 +61,6 @@ export const getExpenses = async(req, res)=>{
 
 export const deleteExpense = async(req, res)=>{
     const {id} = req.params
-    console.log(id)
     ExpenseModel.findByIdAndDelete(id).then((expense)=>{
         res.status(200).json({message: "Expense Successfully deleted"})
     }).catch((Expense)=>{
