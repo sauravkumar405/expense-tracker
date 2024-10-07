@@ -76,7 +76,7 @@ const NavStyled = styled.nav`
         display: flex;
         flex-direction: column;
         li{
-            display: grid;
+            display: flex;
             align-items: center;
             margin: .6rem 0;
             font-weight: 500;
@@ -84,6 +84,7 @@ const NavStyled = styled.nav`
             transition: all .4s ease-in-out;
             color: rgba(34, 34, 96, .6);
             padding-left: 1rem;
+            gap: 10px;
             position: relative;
             i{
                 color: rgba(34, 34, 96, 0.6);

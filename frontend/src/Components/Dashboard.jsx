@@ -13,7 +13,6 @@ function Dashboard() {
         getIncomes()
         getExpenses()
     }, [])
-
     return (
         <DashboardStyled>
             <InnerLayout>
@@ -25,19 +24,19 @@ function Dashboard() {
                             <div className="income">
                                 <h2>Total Income</h2>
                                 <p>
-                                    {dollar} {totalIncomes}
+                                    {dollar}{totalIncomes}
                                 </p>
                             </div>
                             <div className="expense">
                                 <h2>Total Expense</h2>
                                 <p>
-                                    {dollar} {totalExpenses}
+                                    {dollar}{totalExpenses}
                                 </p>
                             </div>
                             <div className="balance">
                                 <h2>Total Balance</h2>
                                 <p>
-                                    {dollar} {totalBalance}
+                                    {dollar}{totalBalance}
                                 </p>
                             </div>
                         </div>
@@ -92,7 +91,8 @@ const DashboardStyled = styled.div`
                     border-radius: 20px;
                     padding: 1rem;
                     p{
-                        font-size: 3.5rem;
+                    padding-top:10px;
+                        font-size: 2.5rem;
                         font-weight: 700;
                     }
                 }
@@ -106,7 +106,7 @@ const DashboardStyled = styled.div`
                     p{
                         color: var(--color-green);
                         opacity: 0.6;
-                        font-size: 4.5rem;
+                        font-size: 3rem;
                     }
                 }
             }
