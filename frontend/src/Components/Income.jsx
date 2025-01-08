@@ -4,13 +4,18 @@ import { useGlobalContext } from '../context/globalContext';
 import { InnerLayout } from '../styles/Layouts';
 import Form from './Form';
 import IncomeItem from './IncomeItem';
+import { useDispatch, useSelector } from 'react-redux';
+import { getIncomes,deleteIncome } from '../redux/slices/income-slice';
 
 function Income() {
-    const {addIncome,incomes, getIncomes, deleteIncome, totalIncomes} = useGlobalContext()
+    // const {addIncome,incomes, getIncomes, deleteIncome, totalIncomes} = useGlobalContext()
+    const dispatch = useDispatch()
 
-    useEffect(() =>{
-        getIncomes()
-    }, [])
+    const { incomes, totalIncomes} = useSelector((state) => state.income);
+    useEffect(()=>{
+        dispatch(getIncomes())
+    },[])
+
     return (
         <IncomeStyled>
             <InnerLayout>
@@ -33,7 +38,7 @@ function Income() {
                                 type={type}
                                 category={category} 
                                 indicatorColor="var(--color-green)"
-                                deleteItem={deleteIncome}
+                                deleteItem={()=>dispatch(deleteIncome(_id))}
                             />
                         })}
                     </div>

@@ -2,31 +2,38 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
-import { useGlobalContext } from '../context/globalContext';
 import Button from './Button';
 import { plus } from '../utils/Icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { addIncome, deleteIncome, getIncomes } from '../redux/slices/income-slice'
 
 
 function Form() {
-    const { addIncome, error, setError } = useGlobalContext()
+    const dispatch = useDispatch()
+    // const {
+    //     expenses,
+    //     totalExpenses,
+    //     totalBalance,
+    //     error
+    //   } = useSelector((state) => state.expense);
+    
     const [inputState, setInputState] = useState({
         title: '',
         amount: '',
         date: '',
         category: '',
-        description: '',
+        description: ''
     })
 
     const { title, amount, date, category, description } = inputState;
 
     const handleInput = name => e => {
         setInputState({ ...inputState, [name]: e.target.value })
-        setError('')
     }
 
     const handleSubmit = e => {
         e.preventDefault()
-        addIncome(inputState)
+        dispatch(addIncome({...inputState}))
         setInputState({
             title: '',
             amount: '',
@@ -38,7 +45,7 @@ function Form() {
 
     return (
         <FormStyled onSubmit={handleSubmit}>
-            {error && <p className='error'>{error}</p>}
+            {/* {error && <p className='error'>{error}</p>} */}
             <div className="input-control">
                 <input
                     type="text"

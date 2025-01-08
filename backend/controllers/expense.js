@@ -35,10 +35,10 @@ export const addExpense = async (req, res) => {
         });
 
         // Save the Expense to the database
-        await expense.save();
+        const savedExpense = await expense.save();
         
         // Send a success response
-        return res.status(201).json({ message: 'Expense added successfully' });
+        return res.status(201).json({ message: 'Expense added successfully', expense: savedExpense });
     } catch (error) {
         // Handle any errors during the saving process
         console.error('Error adding Expense:', error);
@@ -62,7 +62,7 @@ export const getExpenses = async(req, res)=>{
 export const deleteExpense = async(req, res)=>{
     const {id} = req.params
     ExpenseModel.findByIdAndDelete(id).then((expense)=>{
-        res.status(200).json({message: "Expense Successfully deleted"})
+        return res.status(200).json({message: "Expense Successfully deleted", id})
     }).catch((Expense)=>{
         res.status(500).json({message: "Could not delete server error it seems"})
 

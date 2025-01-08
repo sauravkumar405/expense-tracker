@@ -1,16 +1,25 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../context/globalContext';
+import { getTransactionHist } from '../redux/slices/expense-slice';
+import { useDispatch } from 'react-redux';
 
 function History() {
-    const {getTransactionHist} = useGlobalContext()
+    // const {getTransactionHist} = useGlobalContext()
 
-    const [...history] = getTransactionHist()
+    // const [...history] = getTransactionHist()
+    const dispatch = useDispatch()
+    // const { expenses, totalExpenses} = useSelector((state) => state.expense);
+    // const { incomes, totalIncomes} = useSelector((state) => state.income);
+    useEffect(()=>{
+        dispatch(getTransactionHist())
+    },[])
+
 
     return (
         <HistoryStyled>
             <h2>Recent History</h2>
-            {history.map((item) =>{
+            {/* {history.map((item) =>{
                 const {_id, title, amount, type} = item
                 return (
                     <div key={_id} className="history-item">
@@ -29,7 +38,7 @@ function History() {
                         </p>
                     </div>
                 )
-            })}
+            })} */}
         </HistoryStyled>
     )
 }

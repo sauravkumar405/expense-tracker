@@ -35,10 +35,10 @@ export const addIncome = async (req, res) => {
         });
 
         // Save the income to the database
-        await income.save();
+        const savedIncome = await income.save();
         
         // Send a success response
-        return res.status(201).json({ message: 'Income added successfully' });
+        return res.status(201).json({ message: 'Income added successfully', income: savedIncome });
     } catch (error) {
         // Handle any errors during the saving process
         console.error('Error adding income:', error);

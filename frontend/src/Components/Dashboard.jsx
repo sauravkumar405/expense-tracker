@@ -1,18 +1,23 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { useGlobalContext } from '../context/globalContext';
 import History from './History';
 import { InnerLayout } from '../styles/Layouts';
 import { dollar } from '../utils/Icons';
 import Chart from './Chart';
+import { useSelector, useDispatch } from 'react-redux';
+import { addExpense, deleteExpense, getExpenses } from '../redux/slices/expense-slice'
+import { addIncome, deleteIncome, getIncomes } from '../redux/slices/income-slice';
 
 function Dashboard() {
-    const {totalExpenses,incomes, expenses, totalIncomes, totalBalance, getIncomes, getExpenses} = useGlobalContext()
+    const dispatch = useDispatch()
+    const { expenses, totalExpenses} = useSelector((state) => state.expense);
+    const { incomes, totalIncomes} = useSelector((state) => state.income);
+    
+    useEffect(()=>{
+        dispatch(getIncomes())
+        dispatch(getExpenses())
+    },[])
 
-    useEffect(() => {
-        getIncomes()
-        getExpenses()
-    }, [])
     return (
         <DashboardStyled>
             <InnerLayout>
@@ -36,7 +41,7 @@ function Dashboard() {
                             <div className="balance">
                                 <h2>Total Balance</h2>
                                 <p>
-                                    {dollar}{totalBalance}
+                                    {dollar}{totalExpenses - totalIncomes}
                                 </p>
                             </div>
                         </div>

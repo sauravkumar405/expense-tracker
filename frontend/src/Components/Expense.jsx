@@ -4,13 +4,21 @@ import { useGlobalContext } from '../context/globalContext';
 import { InnerLayout } from '../styles/Layouts';
 import IncomeItem from './IncomeItem';
 import ExpenseForm from './ExpenseForm';
+import { useSelector, useDispatch} from 'react-redux';
+import { deleteExpense } from '../redux/slices/expense-slice';
+import { getExpenses } from '../redux/slices/expense-slice';
 
 function Expense() {
-    const {expenses, getExpenses, deleteExpense, totalExpenses} = useGlobalContext()
+    const dispatch = useDispatch()
+    const { expenses, totalExpenses} = useSelector((state) => state.expense);
 
-    useEffect(() =>{
-        getExpenses()
-    }, [])
+    useEffect(()=>{
+        dispatch(getExpenses())
+    },[])
+    function handleDeleteExpense(id){
+        dispatch(deleteExpense(id))
+    }
+
     return (
         <ExpenseStyled>
             <InnerLayout>
@@ -33,7 +41,7 @@ function Expense() {
                                 type={type}
                                 category={category} 
                                 indicatorColor="var(--color-green)"
-                                deleteItem={deleteExpense}
+                                deleteItem={handleDeleteExpense}
                             />
                         })}
                     </div>
