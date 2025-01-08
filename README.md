@@ -1,112 +1,126 @@
 # Expense Tracker
 
-A modern, user-friendly web application to help you track and manage your personal expenses efficiently.
+A full-stack Expense Tracker Application built with React.js, Node.js, and MongoDB, featuring secure user authentication, data visualization, and dynamic page routing. This application helps users effectively track and visualize their expenses.
 
-## 📌 Features
+## Features
 
-- Track daily income and expenses
-- Categorize transactions
-- Visual analytics and reports
-- Monthly/yearly budget planning
-- Export financial data
-- Responsive design for mobile and desktop
-- Secure user authentication
+- **User Authentication**: Secure sign-up and login functionality.
+- **Expense Management**: Add, edit, and delete expense entries.
+- **Data Visualization**: Interactive charts and graphs powered by Chart.js.
+- **Dynamic Routing**: Utilizes React Router DOM for seamless navigation.
+- **Responsive Design**: Fully responsive user interface for all devices.
+- **Real-time Updates**: Instant updates to expense data.
 
-## 🚀 Getting Started
+## Technologies Used
+
+### Frontend
+- React.js
+- React Router DOM
+- Chart.js
+- CSS3/SCSS for styling
+
+### Backend
+- Node.js
+- Express.js
+
+### Database
+- MongoDB
+
+### Security
+- JWT for authentication
+- Password hashing using bcrypt
+
+## Installation
 
 ### Prerequisites
+- Node.js and npm installed
+- MongoDB server running locally or accessible via URI
 
-- Node.js (v14.0.0 or higher)
-- MongoDB
-- npm or yarn
+### Steps
 
-### Installation
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/sauravkumar405/expense-tracker.git
+    cd expense-tracker
+    ```
 
-1. Clone the repository
-```bash
-git clone https://github.com/sauravkumar405/expense-tracker.git
-cd expense-tracker
-```
+2. Install dependencies:
+    ```bash
+    npm install
+    cd client
+    npm install
+    ```
 
-2. Install dependencies
-```bash
-npm install
-```
+3. Set up environment variables:
+    - Create a `.env` file in the root directory.
+    - Add the following variables:
+      ```env
+      MONGO_URI=your_mongodb_connection_string
+      JWT_SECRET=your_jwt_secret_key
+      ```
 
-3. Create a `.env` file in the root directory and add your environment variables
-```env
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-PORT=3000
-```
+4. Start the development servers:
+    - Backend server:
+      ```bash
+      npm run server
+      ```
+    - Frontend React app:
+      ```bash
+      cd client
+      npm start
+      ```
 
-4. Start the development server
-```bash
-npm run dev
-```
+5. Open your browser and navigate to `http://localhost:3000` to use the application.
 
-The application will be available at `http://localhost:3000`
+## Usage
 
-## 🛠️ Tech Stack
+1. Sign up or log in to your account.
+2. Add your income and expenses.
+3. Visualize your expense data with charts.
+4. Manage your expense entries as needed.
 
-- **Frontend**: React.js
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB
-- **Authentication**: JWT
-- **Styling**: CSS/SCSS
-- **Charts**: Chart.js
+## Screenshots
 
-## 📊 Project Structure
+- Add screenshots showcasing key features like the dashboard, expense list, and charts.
+
+## Folder Structure
 
 ```
 expense-tracker/
-├── client/              # Frontend React application
-├── server/              # Backend Node.js application
-├── config/              # Configuration files
-├── models/              # Database models
-├── routes/              # API routes
-├── middleware/          # Custom middleware
-├── utils/              # Utility functions
-└── tests/              # Test files
+├── client/       # React frontend code
+├── server/       # Node.js backend code
+├── models/       # MongoDB schemas
+├── routes/       # API endpoints
+├── middleware/   # Authentication and other middleware
+├── .env          # Environment variables
+├── package.json  # Backend dependencies
+└── README.md     # Documentation
 ```
 
-## 🔒 API Endpoints
+## Contributing
 
-### Authentication
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - Login user
+Contributions are welcome! Feel free to open issues or submit pull requests to improve the project.
 
-### Transactions
-- `GET /api/transactions` - Get all transactions
-- `POST /api/transactions` - Create new transaction
-- `PUT /api/transactions/:id` - Update transaction
-- `DELETE /api/transactions/:id` - Delete transaction
+1. Fork the repository.
+2. Create a new branch:
+    ```bash
+    git checkout -b feature-name
+    ```
+3. Commit your changes:
+    ```bash
+    git commit -m "Add some feature"
+    ```
+4. Push to the branch:
+    ```bash
+    git push origin feature-name
+    ```
+5. Open a pull request.
 
-### Categories
-- `GET /api/categories` - Get all categories
-- `POST /api/categories` - Create new category
+## License
 
-## 🤝 Contributing
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+## Contact
 
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
-
-## 👏 Acknowledgments
-
-- Thanks to all contributors who have helped this project grow
-- Special thanks to the open-source community for their invaluable tools and libraries
-
-## 📧 Contact
-
-Saurav Kumar - [GitHub](https://github.com/sauravkumar405)
-
-Project Link: [https://github.com/sauravkumar405/expense-tracker](https://github.com/sauravkumar405/expense-tracker)
+- **Author**: [Saurabh Kumar](https://github.com/sauravkumar405)
+- **LinkedIn**: [Saurabh Kumar](https://www.linkedin.com/in/saurabhkumar-xo/)
